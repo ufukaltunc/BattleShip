@@ -4,12 +4,6 @@ Battleship is a war-themed board game for two players in which the opponents try
 ## Overview
 The game is developed for p2p. The game board is 10x10 in size and there are 2 boards, one for the user and one for the enemy.
 
-#### Ships
-* *Battleship* (4) x1
-* *Cruiser* (3) x2
-* *Destroyer* (2) x3
-* *Submarine* (1) x4
-
 ### Steps to run the Game
 * Run Server.java
 * Run Client.java
@@ -20,3 +14,13 @@ The game is developed for p2p. The game board is 10x10 in size and there are 2 b
 3. Ships cannot be positioned on the board touching each other. The game starts after positioning is complete.
 4. A square is selected from the enemy's board in turn. If there is a piece of the ship in the selected square, the selection continues, otherwise the turn passes to the opposite side.
 5. The player who manages to locate all the other player’s ship is declared the winner of the game.
+
+#### Ships
+* *Battleship* (4) x1
+* *Cruiser* (3) x2
+* *Destroyer* (2) x3
+* *Submarine* (1) x4
+
+### Features
+* Two-way text chat
+* Option to rematch after game ends
