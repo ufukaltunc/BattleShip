@@ -5,10 +5,10 @@ Battleship is a war-themed board game for two players in which the opponents try
 The game is developed for p2p. The game board is 10x10 in size and there are 2 boards, one for the user and one for the enemy.
 
 #### Ships
-* Battleship (4) x1
-* Cruiser (3) x2
-* Destroyer (2) x3
-* Submarine (1) x4
+* *Battleship* (4) x1
+* *Cruiser* (3) x2
+* *Destroyer* (2) x3
+* *Submarine* (1) x4
 
 ### Steps to run the Game
 * Run Server.java
