@@ -38,7 +38,6 @@ public class GameSetupGrid extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        // Initialize cells 
         allCells = new SetupCell[10][10];
         ships = new Ship[shipOrder.length - 1];
 
@@ -53,7 +52,6 @@ public class GameSetupGrid extends JPanel {
 
     }
 
-    // Reset 
     public void refreshGrid() {
         for (int row = 0; row < allCells.length; row++) {
             for (int col = 0; col < allCells[row].length; col++) {
@@ -66,7 +64,6 @@ public class GameSetupGrid extends JPanel {
         }
     }
 
-    // Ship formation
     public Vector<Point> drawShipPreview(int row, int col) {
         Vector<Point> pointsToDraw = new Vector<Point>();
 
@@ -91,7 +88,6 @@ public class GameSetupGrid extends JPanel {
         return pointsToDraw;
     }
 
-    // When clicked - save ship location
     public boolean addShip(int row, int col) {
         Vector<Point> pointsToDraw = new Vector<Point>();
         if (!checkNeighbours(row, col)) {
@@ -134,15 +130,12 @@ public class GameSetupGrid extends JPanel {
         return ships;
     }
 
-    // Function checks whether a ship can be drawn/placed at the current location
     public boolean checkNeighbours(int row, int col) {
 
-        // We cannot place a ship if there is already one there
         if (allCells[row][col].getStatus() != 0) {
             return false;
         }
 
-        // Calculate if ship placement is out of bounds
         if (rotation == 0 && row + shipOrder[currentShipIndex] - 1 > 9) {
             return false;
         } else if (rotation == 1 && col + shipOrder[currentShipIndex] - 1 > 9) {
@@ -156,7 +149,6 @@ public class GameSetupGrid extends JPanel {
 
         Vector<Point> newShip = new Vector<Point>();
 
-        // Calcualtes bounding box coordinates
         if (rotation == 1) {
             startIndexRow = (row - 1 < 0) ? 0 : row - 1;
             startIndexCol = (col - 1 < 0) ? 0 : col - 1;
@@ -180,19 +172,14 @@ public class GameSetupGrid extends JPanel {
         for (int i = startIndexRow; i <= endIndexRow; i++) {
             for (int j = startIndexCol; j <= endIndexCol; j++) {
 
-//				System.out.print(i + ":" + j + " ");
-                // Parbauda vai punkts nav jaunajam kugim
                 if (newShip.contains(new Point(j, i))) {
-//					System.out.print("SHIP POINT");
                     continue;
                 }
 
                 if (allCells[i][j].getStatus() != 0) {
-//					System.out.println("Ship in neighbour");
                     return false;
                 }
             }
-//			System.out.println(" ");
         }
 
         return true;
